@@ -1,0 +1,5 @@
+### Lấy danh sách thông báo
+GET http://localhost:8081/api/v1/notifications/all
+
+### Lấy số lượng thông báo của ngày hiện tại
+GET http://localhost:8081/api/v1/notifications/count
