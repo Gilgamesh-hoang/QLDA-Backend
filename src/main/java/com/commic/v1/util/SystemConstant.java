@@ -1,4 +1,4 @@
-package com.commic.util;
+package com.commic.v1.util;
 
 public class SystemConstant {
 
