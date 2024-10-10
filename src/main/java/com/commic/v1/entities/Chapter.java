@@ -1,5 +1,5 @@
 package com.commic.v1.entities;
-/**
+/*
  * Add Chapter Entity with Relationships and Attributes
  *
  * Description:
