@@ -1,18 +1,5 @@
 package com.commic.v1.entities;
-/*
- * Add Chapter Entity with Relationships and Attributes
- *
- * Description:
- * - Đã tạo thực thể Chapter trong gói entities.
- * - Thực thể chứa các trường: id, book (quan hệ nhiều-một với Book), 
- *   name, publishDate, view, và các quan hệ một-nhiều với ChapterContent, 
- *   Comment, Rating, và History.
- * - Sử dụng Lombok để tự động tạo các phương thức getter, setter và constructors.
- * - Đặt giá trị mặc định cho trường isDeleted là false.
- * - Thêm chú thích JPA để ánh xạ đến bảng 'chapters' trong cơ sở dữ liệu.
- *
- * Tags: #entity #JPA #Lombok #Java #Hibernate
- */
+
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
