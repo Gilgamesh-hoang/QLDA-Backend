@@ -35,3 +35,4 @@ build/
 /mvnw
 /mvnw.cmd
 /bin/
+src/main/resources/application-dev.properties
