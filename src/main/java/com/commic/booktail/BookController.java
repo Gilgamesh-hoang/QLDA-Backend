@@ -1,8 +1,9 @@
-package com.commic.v1.entities;
+package com.commic.booktail;
 
 
+import com.commic.booktail.IBookService;
 import com.commic.v1.entities.Book;
-import com.commic.v1.entities.IBookService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
@@ -25,4 +26,5 @@ public class BookController {
     public ResponseEntity<Book> getBookById(@PathVariable Integer id) {
         return ResponseEntity.ok(bookService.getBookById(id));
     }
+    
 }

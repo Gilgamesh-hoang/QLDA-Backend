@@ -1,4 +1,4 @@
-package com.commic.v1.entities;
+package com.commic.booktail;
 
 import com.commic.v1.entities.Book;
 import org.springframework.data.domain.Pageable;
@@ -9,6 +9,7 @@ import java.util.List;
 
 @Service
 public class BookServiceImpl implements IBookService {
+    
     @Override
     public List<Book> getAllBooks(Pageable pageable) {
         // Giả lập dữ liệu hoặc truy vấn từ cơ sở dữ liệu

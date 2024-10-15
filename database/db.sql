@@ -14,24 +14,24 @@
 
 
 -- Dumping database structure for doctruyen
-CREATE DATABASE IF NOT EXISTS `doctruyen` /*!40100 DEFAULT CHARACTER SET utf8mb4 */;
-USE `doctruyen`;
+CREATE DATABASE IF NOT EXISTS  doctruyen  /*!40100 DEFAULT CHARACTER SET utf8mb4 */;
+USE  doctruyen ;
 
 -- Dumping structure for table doctruyen.books
-CREATE TABLE IF NOT EXISTS `books` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `author` varchar(255) DEFAULT NULL,
-  `description` varchar(255) DEFAULT NULL,
-  `name` varchar(255) DEFAULT NULL,
-  `status` varchar(255) DEFAULT NULL,
-  `thumbnail` varchar(255) DEFAULT NULL,
-  `is_deleted` bit(1) DEFAULT b'0',
-  PRIMARY KEY (`id`)
+CREATE TABLE IF NOT EXISTS  books  (
+   id  int(11) NOT NULL AUTO_INCREMENT,
+   author  varchar(255) DEFAULT NULL,
+   description  varchar(255) DEFAULT NULL,
+   name  varchar(255) DEFAULT NULL,
+   status  varchar(255) DEFAULT NULL,
+   thumbnail  varchar(255) DEFAULT NULL,
+   is_deleted  bit(1) DEFAULT b'0',
+  PRIMARY KEY ( id )
 ) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8mb4;
 
 -- Dumping data for table doctruyen.books: ~25 rows (approximately)
-/*!40000 ALTER TABLE `books` DISABLE KEYS */;
-INSERT INTO `books` (`id`, `author`, `description`, `name`, `status`, `thumbnail`, `is_deleted`) VALUES
+/*!40000 ALTER TABLE  books  DISABLE KEYS */;
+INSERT INTO  books  ( id ,  author ,  description ,  name ,  status ,  thumbnail ,  is_deleted ) VALUES
 	(1, 'Đang cập nhật', 'Truyện tranh Thần Hồn Võ Đế được cập nhật nhanh và đầy đủ nhất tại Argon Comic. Bạn đọc đừng quên để lại bình luận và chia sẻ, ủng hộ Argon Comic ra các chương mới nhất của truyện Thần Hồn Võ Đế.', 'THẦN HỒN VÕ ĐẾ', 'UPDATING', 'https://img.dtruyen.com/public/images/large/hondevothanu4S7xag.jpg', b'0'),
 	(2, 'Đang cập nhật', 'Shiina Kazuya, đã chết trong cố gắng bảo vệ một người bạn thời thơ ấu. Cậu đã được tái sinh thành Kain Von Shilford, con trai thứ 3 trong một gia đình quý tộc. Cuộc phiêu lưu của cậu bắt đầu trong thế giới kiếm và ma thuật bắt đầu...', 'Biên Niên Sử Quý Tộc Tái Sinh Ở Thế Giới Khác', 'UPDATING', 'https://cdn.myanimelist.net/images/anime/1071/135255.jpg', b'0'),
 	(3, 'Đang cập nhật', 'Tôi là một cậu trai ước mơ làm "chúa tể bóng tối", chèo lái câu chuyện trong bóng tối, bí mật phô bày năng lực, tên là Shido. Vừa mới hớn hở vì được chuyển sinh đến thế giới khác và quyết định "mình sẽ là chúa tể bóng đêm, ngấm ngầm loại bỏ giáo phái đen ', 'TA MUỐN TRỞ THÀNH CHÚA TỂ BÓNG TỐI!', 'UPDATING', 'https://cdn.myanimelist.net/images/anime/1874/121869.jpg', b'0'),
@@ -54,21 +54,21 @@ INSERT INTO `books` (`id`, `author`, `description`, `name`, `status`, `thumbnail
 	(20, 'Nguyễn Văn A', 'Vào một ngày đẹp trời, tôi thức dậy và đột nhiên trở thành Quỷ vương, người mang trách nhiệm bảo vệ dungeon. Ở một thế giới tràn ngập bởi bạo lực. Những con quái khổng lồ ở khắp nơi, đấu tranh hằng ngày để sinh tồn. Tôi không còn lựa chọn nào khác ngoài t', 'MAOU NI NATTE NODE, DUNGEON TSUKUTTE JINGAI MUSUME TO HONOBONO SURU', 'FULL', 'https://static.wikia.nocookie.net/maou-ni-natta-node/images/0/01/LN_V13-01.jpg/revision/latest?cb=20220414213635', b'0'),
 	(31, 'q', 'q', 'q', 'UPDATING', 'https://firebasestorage.googleapis.com/v0/b/comic-c7562.appspot.com/o/images%2Fc3cea109-51ad-4731-8593-0c55393f2687?alt=media&token=19b04173-de5c-4fe7-b7e7-92873efa548f', b'1'),
 	(32, 'w', 'w', 'w', 'UPDATING', 'https://firebasestorage.googleapis.com/v0/b/comic-c7562.appspot.com/o/images%2Fa89bc568-c975-4ae5-bf7a-68e3305cc559?alt=media&token=90db24d5-5631-43f4-94f7-3e3e404448b5', b'1');
-/*!40000 ALTER TABLE `books` ENABLE KEYS */;
+/*!40000 ALTER TABLE  books  ENABLE KEYS */;
 
 -- Dumping structure for table doctruyen.book_category
-CREATE TABLE IF NOT EXISTS `book_category` (
-  `category_id` int(11) NOT NULL,
-  `book_id` int(11) NOT NULL,
-  PRIMARY KEY (`category_id`,`book_id`),
-  KEY `FK7k0c5mr0rx89i8jy5ges23jpe` (`book_id`),
-  CONSTRAINT `FK7k0c5mr0rx89i8jy5ges23jpe` FOREIGN KEY (`book_id`) REFERENCES `books` (`id`),
-  CONSTRAINT `FKiwvwb2bwuvg0017hh8kg5e8g1` FOREIGN KEY (`category_id`) REFERENCES `categories` (`id`)
+CREATE TABLE IF NOT EXISTS  book_category  (
+   category_id  int(11) NOT NULL,
+   book_id  int(11) NOT NULL,
+  PRIMARY KEY ( category_id , book_id ),
+  KEY  FK7k0c5mr0rx89i8jy5ges23jpe  ( book_id ),
+  CONSTRAINT  FK7k0c5mr0rx89i8jy5ges23jpe  FOREIGN KEY ( book_id ) REFERENCES  books  ( id ),
+  CONSTRAINT  FKiwvwb2bwuvg0017hh8kg5e8g1  FOREIGN KEY ( category_id ) REFERENCES  categories  ( id )
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- Dumping data for table doctruyen.book_category: ~32 rows (approximately)
-/*!40000 ALTER TABLE `book_category` DISABLE KEYS */;
-INSERT INTO `book_category` (`category_id`, `book_id`) VALUES
+/*!40000 ALTER TABLE  book_category  DISABLE KEYS */;
+INSERT INTO  book_category  ( category_id ,  book_id ) VALUES
 	(1, 1),
 	(1, 11),
 	(1, 20),
@@ -103,19 +103,19 @@ INSERT INTO `book_category` (`category_id`, `book_id`) VALUES
 	(9, 31),
 	(10, 10),
 	(10, 31);
-/*!40000 ALTER TABLE `book_category` ENABLE KEYS */;
+/*!40000 ALTER TABLE  book_category  ENABLE KEYS */;
 
 -- Dumping structure for table doctruyen.categories
-CREATE TABLE IF NOT EXISTS `categories` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `description` varchar(255) DEFAULT NULL,
-  `name` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id`)
+CREATE TABLE IF NOT EXISTS  categories  (
+   id  int(11) NOT NULL AUTO_INCREMENT,
+   description  varchar(255) DEFAULT NULL,
+   name  varchar(255) DEFAULT NULL,
+  PRIMARY KEY ( id )
 ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4;
 
 -- Dumping data for table doctruyen.categories: ~10 rows (approximately)
-/*!40000 ALTER TABLE `categories` DISABLE KEYS */;
-INSERT INTO `categories` (`id`, `description`, `name`) VALUES
+/*!40000 ALTER TABLE  categories  DISABLE KEYS */;
+INSERT INTO  categories  ( id ,  description ,  name ) VALUES
 	(1, 'Books with imaginative or fanciful themes, usually involving magic, supernatural events, or mythical creatures.', 'Tưởng tượng'),
 	(2, 'Books that explore speculative concepts such as futuristic science and technology, space exploration, time travel, and extraterrestrial life.', 'Khoa học viễn tưởng'),
 	(3, 'Books focused on romantic love relationships, typically featuring passionate attraction and emotional attachment between characters.', 'Lãng mạn'),
@@ -126,24 +126,24 @@ INSERT INTO `categories` (`id`, `description`, `name`) VALUES
 	(8, 'Books based on real events, facts, and information, typically covering topics such as history, biography, science, self-help, and memoirs.', 'Phi hư cấu'),
 	(9, 'Books that narrate the life story of a real person, providing insights into their achievements, experiences, and contributions.', 'Tiểu sử'),
 	(10, 'Books aimed at helping individuals improve themselves, overcome challenges, and achieve personal growth and success.', 'Tự lực');
-/*!40000 ALTER TABLE `categories` ENABLE KEYS */;
+/*!40000 ALTER TABLE  categories  ENABLE KEYS */;
 
 -- Dumping structure for table doctruyen.chapters
-CREATE TABLE IF NOT EXISTS `chapters` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) DEFAULT NULL,
-  `publish_date` date DEFAULT NULL,
-  `view` int(11) DEFAULT NULL,
-  `book_id` int(11) DEFAULT NULL,
-  `is_deleted` bit(1) DEFAULT b'0',
-  PRIMARY KEY (`id`),
-  KEY `FKed84iwj3kfagv35uls80txkj4` (`book_id`),
-  CONSTRAINT `FKed84iwj3kfagv35uls80txkj4` FOREIGN KEY (`book_id`) REFERENCES `books` (`id`)
+CREATE TABLE IF NOT EXISTS  chapters  (
+   id  int(11) NOT NULL AUTO_INCREMENT,
+   name  varchar(255) DEFAULT NULL,
+   publish_date  date DEFAULT NULL,
+   view  int(11) DEFAULT NULL,
+   book_id  int(11) DEFAULT NULL,
+   is_deleted  bit(1) DEFAULT b'0',
+  PRIMARY KEY ( id ),
+  KEY  FKed84iwj3kfagv35uls80txkj4  ( book_id ),
+  CONSTRAINT  FKed84iwj3kfagv35uls80txkj4  FOREIGN KEY ( book_id ) REFERENCES  books  ( id )
 ) ENGINE=InnoDB AUTO_INCREMENT=60 DEFAULT CHARSET=utf8mb4;
 
 -- Dumping data for table doctruyen.chapters: ~59 rows (approximately)
-/*!40000 ALTER TABLE `chapters` DISABLE KEYS */;
-INSERT INTO `chapters` (`id`, `name`, `publish_date`, `view`, `book_id`, `is_deleted`) VALUES
+/*!40000 ALTER TABLE  chapters  DISABLE KEYS */;
+INSERT INTO  chapters  ( id ,  name ,  publish_date ,  view ,  book_id ,  is_deleted ) VALUES
 	(1, 'Chapter 1', '2023-01-31', 25, 1, b'0'),
 	(2, 'Chapter 2', '2023-02-09', 13, 1, b'0'),
 	(3, 'Chapter 3', '2023-02-11', 10, 1, b'0'),
@@ -203,22 +203,22 @@ INSERT INTO `chapters` (`id`, `name`, `publish_date`, `view`, `book_id`, `is_del
 	(57, 'Chapter 1', '2023-05-03', 0, 20, b'0'),
 	(58, 'Chapter 2', '2023-05-03', 0, 20, b'0'),
 	(59, 'Chapter 3', '2023-05-03', 0, 20, b'0');
-/*!40000 ALTER TABLE `chapters` ENABLE KEYS */;
+/*!40000 ALTER TABLE  chapters  ENABLE KEYS */;
 
 -- Dumping structure for table doctruyen.chapter_contents
-CREATE TABLE IF NOT EXISTS `chapter_contents` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `link_image` varchar(255) DEFAULT NULL,
-  `chapter_id` int(11) DEFAULT NULL,
-  `is_deleted` bit(1) DEFAULT b'0',
-  PRIMARY KEY (`id`),
-  KEY `FKfkh8u54wbmdd8q6ujl7x9rgg4` (`chapter_id`),
-  CONSTRAINT `FKfkh8u54wbmdd8q6ujl7x9rgg4` FOREIGN KEY (`chapter_id`) REFERENCES `chapters` (`id`)
+CREATE TABLE IF NOT EXISTS  chapter_contents  (
+   id  int(11) NOT NULL AUTO_INCREMENT,
+   link_image  varchar(255) DEFAULT NULL,
+   chapter_id  int(11) DEFAULT NULL,
+   is_deleted  bit(1) DEFAULT b'0',
+  PRIMARY KEY ( id ),
+  KEY  FKfkh8u54wbmdd8q6ujl7x9rgg4  ( chapter_id ),
+  CONSTRAINT  FKfkh8u54wbmdd8q6ujl7x9rgg4  FOREIGN KEY ( chapter_id ) REFERENCES  chapters  ( id )
 ) ENGINE=InnoDB AUTO_INCREMENT=2131 DEFAULT CHARSET=utf8mb4;
 
 -- Dumping data for table doctruyen.chapter_contents: ~1.987 rows (approximately)
-/*!40000 ALTER TABLE `chapter_contents` DISABLE KEYS */;
-INSERT INTO `chapter_contents` (`id`, `link_image`, `chapter_id`, `is_deleted`) VALUES
+/*!40000 ALTER TABLE  chapter_contents  DISABLE KEYS */;
+INSERT INTO  chapter_contents  ( id ,  link_image ,  chapter_id ,  is_deleted ) VALUES
 	(1, 'https://novel-fast.club/cdn_mangaraw/maou-ni-natta-node-dungeon-tsukutte-jingai-musume-to-honobono-suru/chapter-1/02.jpg', 1, b'0'),
 	(2, 'https://novel-fast.club/cdn_mangaraw/maou-ni-natta-node-dungeon-tsukutte-jingai-musume-to-honobono-suru/chapter-1/03.jpg', 1, b'0'),
 	(3, 'https://novel-fast.club/cdn_mangaraw/maou-ni-natta-node-dungeon-tsukutte-jingai-musume-to-honobono-suru/chapter-1/04.jpg', 1, b'0'),
@@ -2216,85 +2216,85 @@ INSERT INTO `chapter_contents` (`id`, `link_image`, `chapter_id`, `is_deleted`) 
 	(2128, 'https://cdn.mangaclash.com/manga_5fdf114caf71c/2894db96f9ddf21dd31a7d52d30ebb24/16.jpg', 59, b'0'),
 	(2129, 'https://cdn.mangaclash.com/manga_5fdf114caf71c/2894db96f9ddf21dd31a7d52d30ebb24/17.jpg', 59, b'0'),
 	(2130, 'https://cdn.mangaclash.com/manga_5fdf114caf71c/2894db96f9ddf21dd31a7d52d30ebb24/18.jpg', 59, b'0');
-/*!40000 ALTER TABLE `chapter_contents` ENABLE KEYS */;
+/*!40000 ALTER TABLE  chapter_contents  ENABLE KEYS */;
 
 -- Dumping structure for table doctruyen.comments
-CREATE TABLE IF NOT EXISTS `comments` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `content` varchar(255) DEFAULT NULL,
-  `created_at` datetime(6) DEFAULT NULL,
-  `state` int(11) DEFAULT NULL,
-  `chapter_id` int(11) DEFAULT NULL,
-  `user_id` int(11) DEFAULT NULL,
-  `is_deleted` bit(1) DEFAULT b'0',
-  PRIMARY KEY (`id`),
-  KEY `FK12wuds5mgtl34a1krcuq2mlgr` (`chapter_id`),
-  KEY `FK8omq0tc18jd43bu5tjh6jvraq` (`user_id`),
-  CONSTRAINT `FK12wuds5mgtl34a1krcuq2mlgr` FOREIGN KEY (`chapter_id`) REFERENCES `chapters` (`id`),
-  CONSTRAINT `FK8omq0tc18jd43bu5tjh6jvraq` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
+CREATE TABLE IF NOT EXISTS  comments  (
+   id  int(11) NOT NULL AUTO_INCREMENT,
+   content  varchar(255) DEFAULT NULL,
+   created_at  datetime(6) DEFAULT NULL,
+   state  int(11) DEFAULT NULL,
+   chapter_id  int(11) DEFAULT NULL,
+   user_id  int(11) DEFAULT NULL,
+   is_deleted  bit(1) DEFAULT b'0',
+  PRIMARY KEY ( id ),
+  KEY  FK12wuds5mgtl34a1krcuq2mlgr  ( chapter_id ),
+  KEY  FK8omq0tc18jd43bu5tjh6jvraq  ( user_id ),
+  CONSTRAINT  FK12wuds5mgtl34a1krcuq2mlgr  FOREIGN KEY ( chapter_id ) REFERENCES  chapters  ( id ),
+  CONSTRAINT  FK8omq0tc18jd43bu5tjh6jvraq  FOREIGN KEY ( user_id ) REFERENCES  users  ( id )
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4;
 
 -- Dumping data for table doctruyen.comments: ~6 rows (approximately)
-/*!40000 ALTER TABLE `comments` DISABLE KEYS */;
-INSERT INTO `comments` (`id`, `content`, `created_at`, `state`, `chapter_id`, `user_id`, `is_deleted`) VALUES
+/*!40000 ALTER TABLE  comments  DISABLE KEYS */;
+INSERT INTO  comments  ( id ,  content ,  created_at ,  state ,  chapter_id ,  user_id ,  is_deleted ) VALUES
 	(1, 'truyện hay quá bạn ơi!', '2021-11-21 00:00:00.000000', 1, 1, 1, b'0'),
 	(2, 'tuyệt vời!', '2021-11-21 00:00:00.000000', 1, 1, 1, b'0'),
 	(3, 'tuyệt vời!', '2021-11-21 00:00:00.000000', 1, 1, 1, b'0'),
 	(4, 'tuyệt vời!', '2021-11-21 00:00:00.000000', 1, 1, 1, b'0'),
 	(5, 'a', '2021-11-21 00:00:00.000000', 1, 1, 1, b'0'),
 	(6, 'b', '2021-11-21 00:00:00.000000', 1, 1, 1, b'0');
-/*!40000 ALTER TABLE `comments` ENABLE KEYS */;
+/*!40000 ALTER TABLE  comments  ENABLE KEYS */;
 
 -- Dumping structure for table doctruyen.histories
-CREATE TABLE IF NOT EXISTS `histories` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `chapter_id` int(11) DEFAULT NULL,
-  `user_id` int(11) DEFAULT NULL,
-  `is_deleted` bit(1) DEFAULT b'0',
-  PRIMARY KEY (`id`),
-  KEY `FKo7kr2od8b4qt4vjxpsb3o4xo1` (`chapter_id`),
-  KEY `FK8w9eva74w7t7xtf2opb33f8bq` (`user_id`),
-  CONSTRAINT `FK8w9eva74w7t7xtf2opb33f8bq` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`),
-  CONSTRAINT `FKo7kr2od8b4qt4vjxpsb3o4xo1` FOREIGN KEY (`chapter_id`) REFERENCES `chapters` (`id`)
+CREATE TABLE IF NOT EXISTS  histories  (
+   id  int(11) NOT NULL AUTO_INCREMENT,
+   chapter_id  int(11) DEFAULT NULL,
+   user_id  int(11) DEFAULT NULL,
+   is_deleted  bit(1) DEFAULT b'0',
+  PRIMARY KEY ( id ),
+  KEY  FKo7kr2od8b4qt4vjxpsb3o4xo1  ( chapter_id ),
+  KEY  FK8w9eva74w7t7xtf2opb33f8bq  ( user_id ),
+  CONSTRAINT  FK8w9eva74w7t7xtf2opb33f8bq  FOREIGN KEY ( user_id ) REFERENCES  users  ( id ),
+  CONSTRAINT  FKo7kr2od8b4qt4vjxpsb3o4xo1  FOREIGN KEY ( chapter_id ) REFERENCES  chapters  ( id )
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
 
 -- Dumping data for table doctruyen.histories: ~2 rows (approximately)
-/*!40000 ALTER TABLE `histories` DISABLE KEYS */;
-INSERT INTO `histories` (`id`, `chapter_id`, `user_id`, `is_deleted`) VALUES
+/*!40000 ALTER TABLE  histories  DISABLE KEYS */;
+INSERT INTO  histories  ( id ,  chapter_id ,  user_id ,  is_deleted ) VALUES
 	(1, 1, 1, b'0'),
 	(2, 1, 1, b'0');
-/*!40000 ALTER TABLE `histories` ENABLE KEYS */;
+/*!40000 ALTER TABLE  histories  ENABLE KEYS */;
 
 -- Dumping structure for table doctruyen.invalidated_tokens
-CREATE TABLE IF NOT EXISTS `invalidated_tokens` (
-  `token_id` varchar(255) NOT NULL,
-  `expired` datetime(6) DEFAULT NULL,
-  PRIMARY KEY (`token_id`)
+CREATE TABLE IF NOT EXISTS  invalidated_tokens  (
+   token_id  varchar(255) NOT NULL,
+   expired  datetime(6) DEFAULT NULL,
+  PRIMARY KEY ( token_id )
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- Dumping data for table doctruyen.invalidated_tokens: ~4 rows (approximately)
-/*!40000 ALTER TABLE `invalidated_tokens` DISABLE KEYS */;
-INSERT INTO `invalidated_tokens` (`token_id`, `expired`) VALUES
+/*!40000 ALTER TABLE  invalidated_tokens  DISABLE KEYS */;
+INSERT INTO  invalidated_tokens  ( token_id ,  expired ) VALUES
 	('50e7cb24-dc07-47ae-82dc-031a8a54c1dc', '2024-05-19 19:52:19.000000'),
 	('5a0c83af-8357-45ed-ab98-71ca4fdbc992', '2024-05-03 19:34:24.000000'),
 	('5f2a4a1b-a0e5-4848-8e12-3ffdb6b86f8c', '2024-05-18 03:54:07.000000'),
 	('764cb9e7-9870-4b3f-a075-e2ca92759577', '2024-04-17 04:24:56.000000'),
 	('ab9ec2f6-29a2-4480-aaf4-0109e77f70bd', '2024-05-03 21:54:30.000000'),
 	('fb137ed1-aa37-4aeb-909a-e2e56335763a', '2024-05-04 01:14:22.000000');
-/*!40000 ALTER TABLE `invalidated_tokens` ENABLE KEYS */;
+/*!40000 ALTER TABLE  invalidated_tokens  ENABLE KEYS */;
 
 -- Dumping structure for table doctruyen.items
-CREATE TABLE IF NOT EXISTS `items` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `image` varchar(255) DEFAULT NULL,
-  `name` varchar(255) DEFAULT NULL,
-  `point` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
+CREATE TABLE IF NOT EXISTS  items  (
+   id  int(11) NOT NULL AUTO_INCREMENT,
+   image  varchar(255) DEFAULT NULL,
+   name  varchar(255) DEFAULT NULL,
+   point  int(11) NOT NULL,
+  PRIMARY KEY ( id )
 ) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4;
 
 -- Dumping data for table doctruyen.items: ~11 rows (approximately)
-/*!40000 ALTER TABLE `items` DISABLE KEYS */;
-INSERT INTO `items` (`id`, `image`, `name`, `point`) VALUES
+/*!40000 ALTER TABLE  items  DISABLE KEYS */;
+INSERT INTO  items  ( id ,  image ,  name ,  point ) VALUES
 	(1, 'https://i.pinimg.com/564x/be/b2/34/beb234d9273e8c029659b37b94992e45.jpg', 'Avatar Girl 1', 100),
 	(2, 'https://i.pinimg.com/736x/08/41/6e/08416e44638f0b21e496332715b11f97.jpg', 'Avatar Girl 2', 100),
 	(3, 'https://i.pinimg.com/564x/fa/bd/d9/fabdd9a477995015fbd962d24aa11f61.jpg', 'Avatar Girl 3', 100),
@@ -2306,42 +2306,42 @@ INSERT INTO `items` (`id`, `image`, `name`, `point`) VALUES
 	(9, 'https://i.pinimg.com/236x/7c/b7/a9/7cb7a9baf775c8895d7fd7a95771d63f.jpg', 'Avatar Boy 4', 100),
 	(10, 'https://i.pinimg.com/236x/86/12/13/86121300cc7a7a3145b71dca9ebc77cd.jpg', 'Avatar Boy 5', 100),
 	(11, 'https://i.pinimg.com/236x/bb/d8/b6/bbd8b61fec49b2d9b32aebceb79dbe77.jpg', 'Avatar Boy 6', 100);
-/*!40000 ALTER TABLE `items` ENABLE KEYS */;
+/*!40000 ALTER TABLE  items  ENABLE KEYS */;
 
 -- Dumping structure for table doctruyen.notifications
-CREATE TABLE IF NOT EXISTS `notifications` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `content` varchar(255) DEFAULT NULL,
-  `date` date DEFAULT NULL,
-  `title` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id`)
+CREATE TABLE IF NOT EXISTS  notifications  (
+   id  int(11) NOT NULL AUTO_INCREMENT,
+   content  varchar(255) DEFAULT NULL,
+   date  date DEFAULT NULL,
+   title  varchar(255) DEFAULT NULL,
+  PRIMARY KEY ( id )
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
 
 -- Dumping data for table doctruyen.notifications: ~2 rows (approximately)
-/*!40000 ALTER TABLE `notifications` DISABLE KEYS */;
-INSERT INTO `notifications` (`id`, `content`, `date`, `title`) VALUES
+/*!40000 ALTER TABLE  notifications  DISABLE KEYS */;
+INSERT INTO  notifications  ( id ,  content ,  date ,  title ) VALUES
 	(1, 'Những tài khoản có bình luận văn tục, bôi nhọ danh dự của cá nhân, tổ chức sẽ bị khóa vĩnh viễn. Thông tin đến đọc giả.', '2021-11-19', 'Xử lý vi phạm'),
 	(2, 'Hệ thống ứng dụng đọc truyện Argon Comic xin phép tạm dừng vào ngày 06-12-2021 để bảo trì. Thông tin đến đọc giả.', '2021-12-05', 'Bảo trì hệ thống');
-/*!40000 ALTER TABLE `notifications` ENABLE KEYS */;
+/*!40000 ALTER TABLE  notifications  ENABLE KEYS */;
 
 -- Dumping structure for table doctruyen.ratings
-CREATE TABLE IF NOT EXISTS `ratings` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `created_at` date DEFAULT NULL,
-  `star` float DEFAULT NULL,
-  `chapter_id` int(11) DEFAULT NULL,
-  `user_id` int(11) DEFAULT NULL,
-  `is_deleted` bit(1) DEFAULT b'0',
-  PRIMARY KEY (`id`),
-  KEY `FK5gtr0tao9mcwj1jas1ujrra81` (`chapter_id`),
-  KEY `FKb3354ee2xxvdrbyq9f42jdayd` (`user_id`),
-  CONSTRAINT `FK5gtr0tao9mcwj1jas1ujrra81` FOREIGN KEY (`chapter_id`) REFERENCES `chapters` (`id`),
-  CONSTRAINT `FKb3354ee2xxvdrbyq9f42jdayd` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
+CREATE TABLE IF NOT EXISTS  ratings  (
+   id  int(11) NOT NULL AUTO_INCREMENT,
+   created_at  date DEFAULT NULL,
+   star  float DEFAULT NULL,
+   chapter_id  int(11) DEFAULT NULL,
+   user_id  int(11) DEFAULT NULL,
+   is_deleted  bit(1) DEFAULT b'0',
+  PRIMARY KEY ( id ),
+  KEY  FK5gtr0tao9mcwj1jas1ujrra81  ( chapter_id ),
+  KEY  FKb3354ee2xxvdrbyq9f42jdayd  ( user_id ),
+  CONSTRAINT  FK5gtr0tao9mcwj1jas1ujrra81  FOREIGN KEY ( chapter_id ) REFERENCES  chapters  ( id ),
+  CONSTRAINT  FKb3354ee2xxvdrbyq9f42jdayd  FOREIGN KEY ( user_id ) REFERENCES  users  ( id )
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4;
 
 -- Dumping data for table doctruyen.ratings: ~7 rows (approximately)
-/*!40000 ALTER TABLE `ratings` DISABLE KEYS */;
-INSERT INTO `ratings` (`id`, `created_at`, `star`, `chapter_id`, `user_id`, `is_deleted`) VALUES
+/*!40000 ALTER TABLE  ratings  DISABLE KEYS */;
+INSERT INTO  ratings  ( id ,  created_at ,  star ,  chapter_id ,  user_id ,  is_deleted ) VALUES
 	(1, '2021-11-21', 5, 1, 1, b'0'),
 	(2, '2021-11-21', 2.5, 1, 1, b'0'),
 	(3, '2021-11-21', 4, 1, 1, b'0'),
@@ -2349,74 +2349,74 @@ INSERT INTO `ratings` (`id`, `created_at`, `star`, `chapter_id`, `user_id`, `is_
 	(5, '2021-11-21', 3.5, 1, 1, b'0'),
 	(6, '2021-11-21', 3, 1, 1, b'0'),
 	(7, '2021-11-21', 4, 1, 1, b'0');
-/*!40000 ALTER TABLE `ratings` ENABLE KEYS */;
+/*!40000 ALTER TABLE  ratings  ENABLE KEYS */;
 
 -- Dumping structure for table doctruyen.redeem_reward
-CREATE TABLE IF NOT EXISTS `redeem_reward` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `date` date DEFAULT NULL,
-  `item_id` int(11) DEFAULT NULL,
-  `user_id` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `FK5djm4oene74uq7fp6jv8ny4lu` (`item_id`),
-  KEY `FK6548pl3ax4mublebneno3wv2k` (`user_id`),
-  CONSTRAINT `FK5djm4oene74uq7fp6jv8ny4lu` FOREIGN KEY (`item_id`) REFERENCES `items` (`id`),
-  CONSTRAINT `FK6548pl3ax4mublebneno3wv2k` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
+CREATE TABLE IF NOT EXISTS  redeem_reward  (
+   id  int(11) NOT NULL AUTO_INCREMENT,
+   date  date DEFAULT NULL,
+   item_id  int(11) DEFAULT NULL,
+   user_id  int(11) DEFAULT NULL,
+  PRIMARY KEY ( id ),
+  KEY  FK5djm4oene74uq7fp6jv8ny4lu  ( item_id ),
+  KEY  FK6548pl3ax4mublebneno3wv2k  ( user_id ),
+  CONSTRAINT  FK5djm4oene74uq7fp6jv8ny4lu  FOREIGN KEY ( item_id ) REFERENCES  items  ( id ),
+  CONSTRAINT  FK6548pl3ax4mublebneno3wv2k  FOREIGN KEY ( user_id ) REFERENCES  users  ( id )
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
 
 -- Dumping data for table doctruyen.redeem_reward: ~2 rows (approximately)
-/*!40000 ALTER TABLE `redeem_reward` DISABLE KEYS */;
-INSERT INTO `redeem_reward` (`id`, `date`, `item_id`, `user_id`) VALUES
+/*!40000 ALTER TABLE  redeem_reward  DISABLE KEYS */;
+INSERT INTO  redeem_reward  ( id ,  date ,  item_id ,  user_id ) VALUES
 	(1, '2021-11-20', 6, 1),
 	(2, '2021-11-20', 1, 1);
-/*!40000 ALTER TABLE `redeem_reward` ENABLE KEYS */;
+/*!40000 ALTER TABLE  redeem_reward  ENABLE KEYS */;
 
 -- Dumping structure for table doctruyen.reward_points
-CREATE TABLE IF NOT EXISTS `reward_points` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `date` date DEFAULT NULL,
-  `point` int(11) DEFAULT NULL,
-  `thu` int(11) DEFAULT NULL,
-  `user_id` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `FKovyxai0u4f1lfi8brc9kovumt` (`user_id`),
-  CONSTRAINT `FKovyxai0u4f1lfi8brc9kovumt` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
+CREATE TABLE IF NOT EXISTS  reward_points  (
+   id  int(11) NOT NULL AUTO_INCREMENT,
+   date  date DEFAULT NULL,
+   point  int(11) DEFAULT NULL,
+   thu  int(11) DEFAULT NULL,
+   user_id  int(11) DEFAULT NULL,
+  PRIMARY KEY ( id ),
+  KEY  FKovyxai0u4f1lfi8brc9kovumt  ( user_id ),
+  CONSTRAINT  FKovyxai0u4f1lfi8brc9kovumt  FOREIGN KEY ( user_id ) REFERENCES  users  ( id )
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4;
 
 -- Dumping data for table doctruyen.reward_points: ~5 rows (approximately)
-/*!40000 ALTER TABLE `reward_points` DISABLE KEYS */;
-INSERT INTO `reward_points` (`id`, `date`, `point`, `thu`, `user_id`) VALUES
+/*!40000 ALTER TABLE  reward_points  DISABLE KEYS */;
+INSERT INTO  reward_points  ( id ,  date ,  point ,  thu ,  user_id ) VALUES
 	(1, '2021-11-20', 5, 1, 1),
 	(2, '2021-11-20', 5, 1, 1),
 	(3, '2021-11-20', 5, 1, 1),
 	(4, '2021-11-24', 5, 1, 1),
 	(5, '2021-11-25', 5, 2, 1);
-/*!40000 ALTER TABLE `reward_points` ENABLE KEYS */;
+/*!40000 ALTER TABLE  reward_points  ENABLE KEYS */;
 
 -- Dumping structure for table doctruyen.users
-CREATE TABLE IF NOT EXISTS `users` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `username` varchar(255) DEFAULT NULL,
-  `password` varchar(255) DEFAULT NULL,
-  `avatar` varchar(255) DEFAULT NULL,
-  `email` varchar(255) DEFAULT NULL,
-  `full_name` varchar(255) DEFAULT NULL,
-  `phone` varchar(255) DEFAULT NULL,
-  `point` int(11) DEFAULT NULL,
-  `role` varchar(255) DEFAULT NULL,
-  `otp` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id`)
+CREATE TABLE IF NOT EXISTS  users  (
+   id  int(11) NOT NULL AUTO_INCREMENT,
+   username  varchar(255) DEFAULT NULL,
+   password  varchar(255) DEFAULT NULL,
+   avatar  varchar(255) DEFAULT NULL,
+   email  varchar(255) DEFAULT NULL,
+   full_name  varchar(255) DEFAULT NULL,
+   phone  varchar(255) DEFAULT NULL,
+   point  int(11) DEFAULT NULL,
+   role  varchar(255) DEFAULT NULL,
+   otp  varchar(255) DEFAULT NULL,
+  PRIMARY KEY ( id )
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4;
 
 -- Dumping data for table doctruyen.users: ~4 rows (approximately)
-/*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` (`id`, `username`, `password`, `avatar`, `email`, `full_name`, `phone`, `point`, `role`, `otp`) VALUES
+/*!40000 ALTER TABLE  users  DISABLE KEYS */;
+INSERT INTO  users  ( id ,  username ,  password ,  avatar ,  email ,  full_name ,  phone ,  point ,  role ,  otp ) VALUES
 	(1, 'admin', '$2a$10$M.4fN6iLM8KP3sfL6BfEHOHce4ec315SFtODxYkOarndwpXS1Z4hS', NULL, 'vophihoang252003@gmail.com', 'võ Phi Hoàng', '1236466', NULL, 'ADMIN', '480835'),
 	(2, 'user1', '$2a$12$21HJaS0umcU7c/S4aReVFuB.pp1W1/qESS42RMT3U7ZhCNLCuEOe2', 'https://vi.pngtree.com//freepng/gray-cartoon-cat-cat-cartoon-animals-gray_3925392.html ', 'vutruong@gmail.com', 'Người dùng 1', '0392382167', NULL, 'USER', NULL),
 	(3, 'user2', '$2a$12$21HJaS0umcU7c/S4aReVFuB.pp1W1/qESS42RMT3U7ZhCNLCuEOe2', NULL, 'user1@gmail.com', 'Người dùng 2', NULL, NULL, 'USER', '293163'),
 	(4, 'user3', '$2a$12$21HJaS0umcU7c/S4aReVFuB.pp1W1/qESS42RMT3U7ZhCNLCuEOe2', NULL, 'user2@gmail.com', 'Người dùng 3', NULL, NULL, 'USER', NULL),
 	(5, '123456', '$2a$10$9gWnzX83EipXJfNi4rXAG.ex1LXoT4mAYLbnHr3pnyjVM.VVOUu72', NULL, '123456@gmail.com', NULL, NULL, NULL, NULL, NULL);
-/*!40000 ALTER TABLE `users` ENABLE KEYS */;
+/*!40000 ALTER TABLE  users  ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
 /*!40014 SET FOREIGN_KEY_CHECKS=IFNULL(@OLD_FOREIGN_KEY_CHECKS, 1) */;

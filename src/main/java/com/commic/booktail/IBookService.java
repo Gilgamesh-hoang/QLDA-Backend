@@ -1,4 +1,4 @@
-package com.commic.v1.entities;
+package com.commic.booktail;
 
 import com.commic.v1.entities.Book;
 import org.springframework.data.domain.Pageable;
