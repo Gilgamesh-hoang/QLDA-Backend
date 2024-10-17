@@ -10,11 +10,4 @@ import java.util.Set;
 @Repository
 public interface ICategoryRepository extends JpaRepository<Category, Long> {
     List<Category> findAll();
-
-//    List<Category> findCategoriesByName(List<String> categoryNames);
-
-//    List<Category> findAllByNameEqualsIgnoreCase(List<String> categoryNames);
-
-    // find all categories by names , equal ignore case
-    Set<Category> findByNameIn(List<String> categoryNames);
 }
