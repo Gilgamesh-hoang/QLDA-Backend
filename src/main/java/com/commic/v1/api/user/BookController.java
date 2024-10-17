@@ -28,6 +28,7 @@ public class BookController {
     ISearchService searchServices;
     @Autowired
     IBookService bookService;
+
     @GetMapping("/rank")
     public APIResponse<DataListResponse<BookResponse>> rank(@RequestParam(name = "page", defaultValue = "1") int page,
                                                             @RequestParam(name = "size", defaultValue = "10") int size,
@@ -46,10 +47,11 @@ public class BookController {
         apiResponse.setResult(items);
         return apiResponse;
     }
+
     @GetMapping("/newComic")
     public APIResponse<DataListResponse<BookResponse>> getNewComicOrderByPublishDate(@RequestParam(name = "page", defaultValue = "1") int page,
-                                                                                        @RequestParam(name = "size", defaultValue = "10") int size,
-                                                                                        @RequestParam(name = "categoryId", defaultValue = "0") Integer categoryId) {
+                                                                                     @RequestParam(name = "size", defaultValue = "10") int size,
+                                                                                     @RequestParam(name = "categoryId", defaultValue = "0") Integer categoryId) {
         Pageable pageable;
         pageable = PageRequest.of(page - 1, size);
         DataListResponse<BookResponse> items;
@@ -70,7 +72,23 @@ public class BookController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<BookResponse> getBookById(@PathVariable(value = "id", required = true)  Integer chapterId) {
+    public ResponseEntity<BookResponse> getBookById(@PathVariable(value = "id", required = true) Integer chapterId) {
         BookResponse book = bookService.getBookByChapterId(chapterId);
-        return ResponseEntity.ok(book);    }
+        return ResponseEntity.ok(book);
+    }
+
+    @GetMapping(value = "/description/{idBook}")
+    public APIResponse<BookResponse> getDescription(@PathVariable("idBook") Integer id) {
+        APIResponse<BookResponse> apiResponse = new APIResponse<>();
+        BookResponse bookResponseDTO = bookService.getDescription(id);
+        if (bookResponseDTO != null) {
+            apiResponse.setCode(ErrorCode.FOUND.getCode());
+            apiResponse.setMessage(ErrorCode.FOUND.getMessage());
+        } else {
+            apiResponse.setCode(ErrorCode.NOT_FOUND.getCode());
+            apiResponse.setMessage(ErrorCode.NOT_FOUND.getMessage());
+        }
+        apiResponse.setResult(bookResponseDTO);
+        return apiResponse;
+    }
 }

@@ -11,5 +11,6 @@ public interface IBookService {
 
     BookResponse getBookByChapterId(Integer chapterId);
 
+    BookResponse getDescription(Integer id);
 }
 
