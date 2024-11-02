@@ -1,0 +1,5 @@
+### Lấy ra lích sử điểm danh
+GET http://localhost:8081/v1/api/attendance/history
+
+### Lấy ra danh sách phần thưởng
+GET http://localhost:8081/v1/api/items

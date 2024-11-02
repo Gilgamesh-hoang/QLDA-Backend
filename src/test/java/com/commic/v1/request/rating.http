@@ -1,0 +1,6 @@
+### Lấy tất cả đánh giá của người dùng
+GET http://localhost:8081/api/v1/ratings/user/1
+
+
+### Đánh giá truyện
+GET http://172.16.0.233:8081/api/v1/ratings/chapter/57

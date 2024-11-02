@@ -1,0 +1,50 @@
+### Tìm kiếm truyện dựa theo tên và category
+GET http://localhost:8081/api/v1/books/search?keyword=t&sortField_name=desc&categoryId=1
+
+### Lấy danh sách truyện theo keword
+GET http://localhost:8081/api/v1/books/search?keyword=a&page=1&size=10
+
+### Tìm kiếm truyện dựa theo tên
+GET http://localhost:8081/api/v1/books/search?keyword=t&sortField_name=desc
+
+### Lấy thông tin 10 truện có lượt đọc cao nhất
+GET http://localhost:8081/api/v1/books/rank?type=view&categoryId=1
+
+### Lấy thông tin 10 truện có lượt đánh gía cao nhất
+GET http://localhost:8081/api/v1/books/rank?type=rating
+
+### Lấy thông tin 10 truện có lượt xem cao nhất
+GET http://localhost:8081/api/v1/books/rank?type=view
+
+### Lấy danh sách category
+GET http://localhost:8081/api/v1/books/category
+
+### Tìm kiếm truyện dựa theo state
+GET http://localhost:8081/api/v1/books/search?keyword=t&sortField_status=desc&categoryId=1
+
+### Lấy thông tin 5 truện có lượt đọc cao nhất
+GET http://localhost:8081/api/v1/books/rank?type=view&size=5&page=3
+
+### Lấy thông tin 5 truyện có rating cao nhất
+GET http://localhost:8081/api/v1/books/rank?type=rating&size=5&page=2
+
+### Lấy thông tin 5 truyện có lượt đọc cao nhất
+GET http://localhost:8081/api/v1/books/rank?type=view&size=5
+
+### Lấy thông tin truyện mới nhất
+GET http://localhost:8081/api/v1/books/newComic?size=5
+
+### Lấy thông tin truyện mới nhất theo thể loai
+GET http://localhost:8081/api/v1/books/newComic?size=5&categoryId=1
+
+### Lấy thông tin một truyện bất kỳ
+GET http://localhost:8081/api/v1/books/description/2
+
+### Lấy thông tin chương truyện
+GET http://localhost:8081/api/v1/chapter-7
+
+### Lấy ra truyện có nhiều chapter nhất xếp theo trạng thái
+GET http://localhost:8081/api/v1/books/search?sortField_status=desc
+
+### Lấy ra truyện mới nhất
+GET http://localhost:8081/api/v1/books/newComic?categoryId=1
