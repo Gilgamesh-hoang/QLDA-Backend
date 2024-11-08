@@ -12,6 +12,7 @@ import java.util.List;
 
 @Repository
 public interface IChapterRepository extends JpaRepository<Chapter, Integer> {
+    List<Chapter> findByBookId(Integer id, Sort sort);
 
     Integer countByBookId(Integer id);
 
@@ -30,4 +31,5 @@ public interface IChapterRepository extends JpaRepository<Chapter, Integer> {
     @Query("SELECT cc FROM ChapterContent cc WHERE cc.chapter.id = :id ORDER BY cc.chapter.id")
     List<ChapterContent> findByChapterId(Integer id);
 
+    boolean existsChapterById(Integer id);
 }
