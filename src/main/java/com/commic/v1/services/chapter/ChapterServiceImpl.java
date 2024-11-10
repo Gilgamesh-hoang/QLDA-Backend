@@ -1,6 +1,8 @@
 package com.commic.v1.services.chapter;
 
+import com.commic.v1.dto.responses.ChapterResponse;
 import com.commic.v1.entities.Chapter;
+import com.commic.v1.mapper.ChapterMapper;
 import com.commic.v1.repositories.IChapterRepository;
 import com.commic.v1.services.comment.ICommentServices;
 import com.commic.v1.services.history.IHistoryService;
@@ -8,6 +10,7 @@ import com.commic.v1.services.rating.IRatingService;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
@@ -22,6 +25,7 @@ public class ChapterServiceImpl implements IChapterService {
     IRatingService ratingService;
     IHistoryService historyService;
     ICommentServices commentServices;
+    ChapterMapper chapterMapper;
 
     @Override
     public void deleteByBookId(Integer id) {
@@ -41,5 +45,11 @@ public class ChapterServiceImpl implements IChapterService {
         }
 
         chapterRepository.saveAllAndFlush(chapters);
+    }
+
+    @Override
+    public List<ChapterResponse> getChaptersByBookId(Integer bookId, Sort sort) {
+        List<Chapter> list = chapterRepository.findByBookId(bookId, sort);
+        return chapterMapper.toChapterDTOs(list);
     }
 }
